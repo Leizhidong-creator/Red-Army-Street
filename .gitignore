@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+.vite/
+playwright-report/
+test-results/
+*.log
+~$*.docx
+
+# User-provided source material. Curated runtime copies live in public/assets.
+地图➕背景.docx
+关帝庙/
+同善社/
+张家大院/
+红军门/
+邮政代办所/
