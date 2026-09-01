@@ -4,7 +4,7 @@ import { ContactShadows, OrbitControls, useGLTF } from '@react-three/drei'
 import { Maximize2, Minimize2, RotateCcw } from 'lucide-react'
 import * as THREE from 'three'
 import { HERITAGE_LIGHTING, prepareHeritageMaterial } from '../three/lighting'
-import { computePresentation } from '../three/modelFit'
+import { computePresentation, INITIAL_VIEW_DIRECTION } from '../three/modelFit'
 
 class ModelErrorBoundary extends Component {
   state = { error: null }
@@ -63,7 +63,11 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted, autoRotate }) 
     const controls = controlsRef.current
     if (!controls) return
 
-    const direction = new THREE.Vector3(1.18, 0.62, 1.28).normalize()
+    const direction = new THREE.Vector3(
+      INITIAL_VIEW_DIRECTION.x,
+      INITIAL_VIEW_DIRECTION.y,
+      INITIAL_VIEW_DIRECTION.z,
+    ).normalize()
     const target = new THREE.Vector3(
       presentation.target.x,
       presentation.target.y,
