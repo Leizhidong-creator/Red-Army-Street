@@ -1,6 +1,10 @@
+import { lazy, Suspense } from 'react'
 import { X } from 'lucide-react'
 import { assetUrl } from '../data/landmarks'
-import { ModelViewer } from './ModelViewer'
+
+const ModelViewer = lazy(() =>
+  import('./ModelViewer').then((module) => ({ default: module.ModelViewer })),
+)
 
 export function LandmarkModal({ landmark, onClose }) {
   return (
@@ -26,7 +30,15 @@ export function LandmarkModal({ landmark, onClose }) {
               <span>数字复原</span>
               <span>{landmark.index} / 05</span>
             </div>
-            <ModelViewer modelUrl={assetUrl(landmark.model)} landmarkName={landmark.name} />
+            <Suspense
+              fallback={
+                <div className="model-viewer model-viewer--booting" role="status">
+                  <span>正在打开数字旧址</span>
+                </div>
+              }
+            >
+              <ModelViewer modelUrl={assetUrl(landmark.model)} landmarkName={landmark.name} />
+            </Suspense>
             <div className="model-region__caption" aria-hidden="true">
               <span className="caption-rule" />
               <span>{landmark.mapLabel}</span>

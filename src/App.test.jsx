@@ -14,14 +14,14 @@ describe('Red Army Street explorer', () => {
     expect(screen.getByRole('img', { name: /哈达铺红军街空间故事线地图/ })).toBeInTheDocument()
   })
 
-  it('opens the matching landmark story and model', () => {
+  it('opens the matching landmark story and model', async () => {
     render(<App />)
 
     fireEvent.click(screen.getByRole('button', { name: '查看关帝庙三维模型' }))
 
     expect(screen.getByRole('dialog', { name: '关帝庙' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: '关帝庙' })).toBeInTheDocument()
-    expect(screen.getByTestId('model-viewer')).toHaveTextContent('关帝庙 三维模型')
+    expect(await screen.findByTestId('model-viewer')).toHaveTextContent('关帝庙 三维模型')
     expect(screen.getByText(/关帝庙旧建筑/)).toHaveTextContent('到陕北去')
   })
 

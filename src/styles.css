@@ -364,6 +364,14 @@ button:focus-visible {
   background-color: #4d1713;
 }
 
+.model-viewer--booting {
+  display: grid;
+  place-items: center;
+  color: rgba(255, 243, 215, 0.86);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 14px;
+}
+
 .model-canvas {
   width: 100% !important;
   height: 100% !important;

@@ -26,7 +26,7 @@ class ModelErrorBoundary extends Component {
   }
 }
 
-function HeritageModel({ url, resetSignal, onReady, onInteracted }) {
+function HeritageModel({ url, resetSignal, onReady, onInteracted, autoRotate }) {
   const controlsRef = useRef(null)
   const { camera, size: viewportSize } = useThree()
   const { scene } = useGLTF(url)
@@ -105,7 +105,7 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted }) {
         enablePan={false}
         minPolarAngle={Math.PI * 0.13}
         maxPolarAngle={Math.PI * 0.52}
-        autoRotate
+        autoRotate={autoRotate}
         autoRotateSpeed={0.42}
         onStart={onInteracted}
       />
@@ -113,7 +113,7 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted }) {
   )
 }
 
-function ModelScene({ url, resetSignal, onReady, onInteracted }) {
+function ModelScene({ url, resetSignal, onReady, onInteracted, autoRotate }) {
   return (
     <>
       <hemisphereLight intensity={1.5} color="#fff2d2" groundColor="#401715" />
@@ -132,6 +132,7 @@ function ModelScene({ url, resetSignal, onReady, onInteracted }) {
           resetSignal={resetSignal}
           onReady={onReady}
           onInteracted={onInteracted}
+          autoRotate={autoRotate}
         />
       </Suspense>
     </>
@@ -177,7 +178,13 @@ export function ModelViewer({ modelUrl, landmarkName }) {
   )
 
   return (
-    <div className="model-viewer" ref={viewerRef} data-interacted={interacted ? 'true' : 'false'}>
+    <div
+      className="model-viewer"
+      ref={viewerRef}
+      data-interacted={interacted ? 'true' : 'false'}
+      onPointerDown={() => setInteracted(true)}
+      onWheel={() => setInteracted(true)}
+    >
       {!ready && (
         <div className="model-state" role="status">
           <span className="model-state__seal" aria-hidden="true" />
@@ -198,6 +205,7 @@ export function ModelViewer({ modelUrl, landmarkName }) {
             resetSignal={resetSignal}
             onReady={() => setReady(true)}
             onInteracted={() => setInteracted(true)}
+            autoRotate={!interacted}
           />
         </Canvas>
       </ModelErrorBoundary>
