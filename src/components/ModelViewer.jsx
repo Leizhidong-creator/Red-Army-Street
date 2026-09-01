@@ -3,7 +3,11 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { ContactShadows, OrbitControls, useGLTF } from '@react-three/drei'
 import { Maximize2, Minimize2, RotateCcw } from 'lucide-react'
 import * as THREE from 'three'
-import { HERITAGE_LIGHTING, prepareHeritageMaterial } from '../three/lighting'
+import {
+  HERITAGE_LIGHTING,
+  prepareHeritageMaterial,
+  prepareHeritageMesh,
+} from '../three/lighting'
 import { computePresentation, INITIAL_VIEW_DIRECTION } from '../three/modelFit'
 
 class ModelErrorBoundary extends Component {
@@ -44,6 +48,7 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted, autoRotate }) 
       if (child.material) {
         child.material = child.material.clone()
         prepareHeritageMaterial(child.material)
+        prepareHeritageMesh(child)
       }
     })
 
@@ -130,7 +135,7 @@ function ModelScene({ url, resetSignal, onReady, onInteracted, autoRotate }) {
       <directionalLight
         castShadow
         intensity={HERITAGE_LIGHTING.keyIntensity}
-        position={[4, 6, 4]}
+        position={[2.5, 2.4, 6]}
         color="#fff0d6"
         shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0004}
