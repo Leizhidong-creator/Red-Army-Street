@@ -3,6 +3,7 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { ContactShadows, OrbitControls, useGLTF } from '@react-three/drei'
 import { Maximize2, Minimize2, RotateCcw } from 'lucide-react'
 import * as THREE from 'three'
+import { HERITAGE_LIGHTING, prepareHeritageMaterial } from '../three/lighting'
 import { computePresentation } from '../three/modelFit'
 
 class ModelErrorBoundary extends Component {
@@ -42,7 +43,7 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted, autoRotate }) 
       child.receiveShadow = true
       if (child.material) {
         child.material = child.material.clone()
-        child.material.needsUpdate = true
+        prepareHeritageMaterial(child.material)
       }
     })
 
@@ -116,16 +117,25 @@ function HeritageModel({ url, resetSignal, onReady, onInteracted, autoRotate }) 
 function ModelScene({ url, resetSignal, onReady, onInteracted, autoRotate }) {
   return (
     <>
-      <hemisphereLight intensity={1.5} color="#fff2d2" groundColor="#401715" />
+      <ambientLight intensity={HERITAGE_LIGHTING.ambientIntensity} color="#fff1dc" />
+      <hemisphereLight
+        intensity={HERITAGE_LIGHTING.hemisphereIntensity}
+        color="#fff5df"
+        groundColor="#8f5d4c"
+      />
       <directionalLight
         castShadow
-        intensity={2.5}
+        intensity={HERITAGE_LIGHTING.keyIntensity}
         position={[4, 6, 4]}
         color="#fff0d6"
         shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0004}
       />
-      <directionalLight intensity={1.1} position={[-4, 2.5, -2]} color="#b9d5cf" />
+      <directionalLight
+        intensity={HERITAGE_LIGHTING.fillIntensity}
+        position={[-4, 3.5, -2]}
+        color="#d9eee7"
+      />
       <Suspense fallback={null}>
         <HeritageModel
           url={url}
@@ -198,7 +208,10 @@ export function ModelViewer({ modelUrl, landmarkName }) {
           shadows
           camera={{ fov: 38, near: 0.01, far: 100, position: [2, 1.3, 2] }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-          onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
+          onCreated={({ gl }) => {
+            gl.setClearColor(0x000000, 0)
+            gl.toneMappingExposure = HERITAGE_LIGHTING.exposure
+          }}
         >
           <ModelScene
             url={modelUrl}
