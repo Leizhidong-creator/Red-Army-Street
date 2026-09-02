@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
   <title id="title">太原理工大学与西北师范大学合作</title>
-  <desc id="desc">深色网格背景上的两校白色 Logo，中间以黄色乘号表示合作</desc>
+  <desc id="desc">深色网格背景上的两校彩色校徽与字标，中间以黄色乘号表示合作</desc>
   <defs>
     <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
       <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#39404d" stroke-width="1" opacity="0.52"/>
