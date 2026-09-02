@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
+  <title id="title">太原理工大学与西北师范大学合作</title>
+  <desc id="desc">深色网格背景上的两校白色 Logo，中间以黄色乘号表示合作</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#39404d" stroke-width="1" opacity="0.52"/>
+    </pattern>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e44732" stop-opacity="0.08"/>
+      <stop offset="0.5" stop-color="#f6d85c" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e44732" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="360" fill="#20232d"/>
+  <rect x="1" y="1" width="1598" height="358" rx="10" fill="url(#grid)" stroke="#4b5260" stroke-width="2"/>
+  <rect x="112" y="56" width="1376" height="222" rx="12" fill="#f7f8fa" stroke="#ffffff" stroke-width="2"/>
+  <rect x="132" y="76" width="612" height="182" rx="8" fill="#ffffff" stroke="#dfe3e8" stroke-width="2"/>
+  <rect x="856" y="76" width="612" height="182" rx="8" fill="#ffffff" stroke="#dfe3e8" stroke-width="2"/>
+  <image x="172" y="96" width="146" height="146" preserveAspectRatio="xMidYMid meet" href="tyut-emblem.svg" xlink:href="tyut-emblem.svg"/>
+  <text x="470" y="147" text-anchor="middle" fill="#214a7b" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">太原理工大学</text>
+  <text x="470" y="187" text-anchor="middle" fill="#50617e" font-family="Arial, sans-serif" font-size="17" letter-spacing="1">TAIYUAN UNIVERSITY OF TECHNOLOGY</text>
+  <circle cx="800" cy="167" r="37" fill="#f6d85c"/>
+  <text x="800" y="185" text-anchor="middle" fill="#20232d" font-family="Arial, sans-serif" font-size="52" font-weight="700">×</text>
+  <image x="906" y="88" width="150" height="150" preserveAspectRatio="xMidYMid meet" href="nwnu-logo-hq.jpg" xlink:href="nwnu-logo-hq.jpg"/>
+  <text x="1182" y="150" text-anchor="middle" fill="#243b6b" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="29" font-weight="700">西北师范大学</text>
+  <text x="1182" y="190" text-anchor="middle" fill="#50617e" font-family="Arial, sans-serif" font-size="18" letter-spacing="1">NORTHWEST NORMAL UNIVERSITY</text>
+  <rect x="112" y="292" width="1376" height="2" fill="url(#edge)"/>
+  <text x="800" y="334" text-anchor="middle" fill="#c7ced9" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" letter-spacing="4">联合数字文化遗产项目</text>
+</svg>
