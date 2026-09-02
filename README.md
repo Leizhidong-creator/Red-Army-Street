@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <img src="public/assets/partners/collaboration-banner.svg" alt="太原理工大学与西北师范大学联合数字文化遗产项目" width="100%" />
+  <img src="docs/images/university-partnership.png" alt="太原理工大学与西北师范大学校徽合作署名" width="100%" />
 </p>
 
 # 🧭 哈达铺红军街
@@ -15,14 +15,17 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?logo=github&logoColor=white)](https://pages.github.com/)
 
-**太原理工大学 × 西北师范大学合作项目**
-
 [在线体验](https://leizhidong-creator.github.io/Red-Army-Street/)
 
 </div>
 
 <p align="center">
-  <img src="public/assets/map.jpg" alt="哈达铺红军街手绘地图与五处革命旧址" width="100%" />
+  <img src="docs/images/red-army-street-map.png" alt="哈达铺红军街互动地图首页" width="100%" />
+</p>
+
+<p align="center">
+  <img src="docs/images/red-army-gate.png" alt="红军门 3D 详情页面" width="49%" />
+  <img src="docs/images/guandi-temple.png" alt="关帝庙 3D 详情页面" width="49%" />
 </p>
 
 ## 🌏 English abstract
